@@ -11,14 +11,18 @@ namespace PizzaOrderWebApplication.Models
         public Order()
         {
             OrderPizza = new HashSet<OrderPizza>();
+            OrderCooking = new HashSet<OrderCooking>();           
         }
         public int Id { get; set; }
         [Required(ErrorMessage = "Поле не повинно бути порожнім")]
-        public int CustomerId {get;set;}
-        public int PaymentId { get; set; }
+        public int CustomerId {get;set;}     
+
+        [Required(ErrorMessage = "Поле не повинно бути порожнім")]
         public DateTime? OrderTime { get; set; }
+        [Required(ErrorMessage = "Поле не повинно бути порожнім")]
+        public int Bill { get; set; }
         public virtual ICollection<OrderPizza> OrderPizza { get; set; }
         public virtual Customer Customer { get; set; }
-        public virtual Payment Payment { get; set; }
+        public virtual ICollection<OrderCooking> OrderCooking { get; set; }
     }
 }

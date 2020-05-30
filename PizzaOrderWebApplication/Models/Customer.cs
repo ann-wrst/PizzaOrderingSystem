@@ -20,9 +20,12 @@ namespace PizzaOrderWebApplication.Models
 
         [Required(ErrorMessage = "Поле не повинно бути порожнім")]
         [UIHint("EmailAddress")]
+        [RegularExpression(@"^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$", ErrorMessage = "Неправильний формат e-mail")]
+
         public String Email { get; set; }
 
         [Required(ErrorMessage = "Поле не повинно бути порожнім")]
+        [RegularExpression(@"^((\+38|38)+([0-9]){10})$", ErrorMessage = "Некоректний номер телефону")]
         public String phoneNumber { get; set; }
 
         [Required(ErrorMessage = "Поле не повинно бути порожнім")]

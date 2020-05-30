@@ -6,20 +6,21 @@ using System.Threading.Tasks;
 
 namespace PizzaOrderWebApplication.Models
 {
-    public class Pizza
+    public class Cook
     {
-        public Pizza()
+        public Cook()
         {
-            OrderPizza = new HashSet<OrderPizza>();
+            OrderCooking = new HashSet<OrderCooking>();
         }
         public int Id { get; set; }
         [Required(ErrorMessage = "Поле не повинно бути порожнім")]
-        [Display(Name = "Назва піци")]
+        [Display(Name = "Ім'я кухара")]
         public string Name { get; set; }
 
         [Required(ErrorMessage = "Поле не повинно бути порожнім")]
-        [Range(40, 1000, ErrorMessage = "Введіть коректну ціну")]
-        public int Price { get; set; }
-        public virtual ICollection<OrderPizza> OrderPizza {get; set;}
+        [Range(0, 75, ErrorMessage = "Введіть коректний стаж роботи")]
+        public int Experience { get; set; }
+
+        public virtual ICollection<OrderCooking> OrderCooking { get; set; }
     }
 }

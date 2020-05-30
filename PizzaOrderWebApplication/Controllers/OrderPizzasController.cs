@@ -11,48 +11,48 @@ namespace PizzaOrderWebApplication.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class PaymentsController : ControllerBase
+    public class OrderPizzasController : ControllerBase
     {
         private readonly PizzaContext _context;
 
-        public PaymentsController(PizzaContext context)
+        public OrderPizzasController(PizzaContext context)
         {
             _context = context;
         }
 
-        // GET: api/Payments
+        // GET: api/OrderPizzas
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Payment>>> GetPayments()
+        public async Task<ActionResult<IEnumerable<OrderPizza>>> GetOrderPizza()
         {
-            return await _context.Payments.ToListAsync();
+            return await _context.OrderPizza.ToListAsync();
         }
 
-        // GET: api/Payments/5
+        // GET: api/OrderPizzas/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Payment>> GetPayment(int id)
+        public async Task<ActionResult<OrderPizza>> GetOrderPizza(int id)
         {
-            var payment = await _context.Payments.FindAsync(id);
+            var orderPizza = await _context.OrderPizza.FindAsync(id);
 
-            if (payment == null)
+            if (orderPizza == null)
             {
                 return NotFound();
             }
 
-            return payment;
+            return orderPizza;
         }
 
-        // PUT: api/Payments/5
+        // PUT: api/OrderPizzas/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutPayment(int id, Payment payment)
+        public async Task<IActionResult> PutOrderPizza(int id, OrderPizza orderPizza)
         {
-            if (id != payment.Id)
+            if (id != orderPizza.Id)
             {
                 return BadRequest();
             }
 
-            _context.Entry(payment).State = EntityState.Modified;
+            _context.Entry(orderPizza).State = EntityState.Modified;
 
             try
             {
@@ -60,7 +60,7 @@ namespace PizzaOrderWebApplication.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!PaymentExists(id))
+                if (!OrderPizzaExists(id))
                 {
                     return NotFound();
                 }
@@ -73,37 +73,37 @@ namespace PizzaOrderWebApplication.Controllers
             return NoContent();
         }
 
-        // POST: api/Payments
+        // POST: api/OrderPizzas
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
-        public async Task<ActionResult<Payment>> PostPayment(Payment payment)
+        public async Task<ActionResult<OrderPizza>> PostOrderPizza(OrderPizza orderPizza)
         {
-            _context.Payments.Add(payment);
+            _context.OrderPizza.Add(orderPizza);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetPayment", new { id = payment.Id }, payment);
+            return CreatedAtAction("GetOrderPizza", new { id = orderPizza.Id }, orderPizza);
         }
 
-        // DELETE: api/Payments/5
+        // DELETE: api/OrderPizzas/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult<Payment>> DeletePayment(int id)
+        public async Task<ActionResult<OrderPizza>> DeleteOrderPizza(int id)
         {
-            var payment = await _context.Payments.FindAsync(id);
-            if (payment == null)
+            var orderPizza = await _context.OrderPizza.FindAsync(id);
+            if (orderPizza == null)
             {
                 return NotFound();
             }
 
-            _context.Payments.Remove(payment);
+            _context.OrderPizza.Remove(orderPizza);
             await _context.SaveChangesAsync();
 
-            return payment;
+            return orderPizza;
         }
 
-        private bool PaymentExists(int id)
+        private bool OrderPizzaExists(int id)
         {
-            return _context.Payments.Any(e => e.Id == id);
+            return _context.OrderPizza.Any(e => e.Id == id);
         }
     }
 }
