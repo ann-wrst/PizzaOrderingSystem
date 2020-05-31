@@ -11,7 +11,7 @@ namespace PizzaOrderingTests
     public class UnitTest1
     {
         [Fact] 
-        public void PostOrder()
+        public void PutCustomer()
         {
             var options = new DbContextOptionsBuilder<PizzaContext>()
                 .UseSqlServer("Server=localhost;Database=PizzaOrderingSystem;Trusted_Connection=True;MultipleActiveResultSets=true")
@@ -20,10 +20,10 @@ namespace PizzaOrderingTests
             CustomersController customersController = new CustomersController(context);
             Customer customer = new Customer { 
                 Id=11,
-                Name = "Олександр Олександрович", 
+                Name = "ГЋГ«ГҐГЄГ±Г Г­Г¤Г° ГЋГ«ГҐГЄГ±Г Г­Г¤Г°Г®ГўГЁГ·", 
                 Email = "test@gmail.com", 
                 phoneNumber = "+380505009090", 
-                Address = "Сеченова, 10", 
+                Address = "Г‘ГҐГ·ГҐГ­Г®ГўГ , 10", 
                 Order = null };
             int result = (customersController.PutCustomer(11, customer).Result as StatusCodeResult).StatusCode;
             int statusCode = 204;
