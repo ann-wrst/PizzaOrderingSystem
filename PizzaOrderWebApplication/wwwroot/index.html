@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Informatics-2020-Lab2 PizzaOrdering</title>
+</head>
+<body>
+    <h1>Informatics-2020-Lab2 PizzaOrdering</h1>
+    <h3>Add Customer</h3>
+    <form action="javascript:void(0);" method="POST" onsubmit="addCustomer()">
+
+        <input type="text" id="add-name" placeholder="New Customer">
+        <input type="text" id="add-email" placeholder="New Customer E-mail">
+        <input type="text" id="add-phone" placeholder="New Customer Phone Number">
+        <input type="text" id="add-address" placeholder="New Customer Address">
+        <input type="submit" value="Add">
+    </form>
+    <div id="editCustomer">
+        <h3>Edit</h3>
+        <form action="javascript:void(0);" onsubmit="updateCustomer()">
+            <input type="hidden" id="edit-id">
+            <input type="text" id="edit-name">
+            <input type="text" id="edit-email">
+            <input type="text" id="edit-phone">
+            <input type="text" id="edit-address">
+            <input type="submit" value="Save">
+            <a onclick="closeInput()" aria-label="Close">&#10006;</a>
+        </form>
+    </div>
+
+    <p id="counter"></p>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Address</th>
+        </tr>
+        <tbody id="customers"></tbody>
+    </table>
+    <script src="js/lab2.js" asp-append-version="true"></script>
+    <script type="text/javascript">
+        getCustomers();
+    </script>
+</body>
+</html>

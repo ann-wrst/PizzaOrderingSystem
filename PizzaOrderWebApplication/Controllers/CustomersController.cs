@@ -47,10 +47,17 @@ namespace PizzaOrderWebApplication.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutCustomer(int id, Customer customer)
         {
+
             if (id != customer.Id)
             {
                 return BadRequest();
             }
+
+            var isvalid = await _context.Customers
+                .Where(o => customer.Id != o.Id && (o.Email.ToLower() == customer.Email.ToLower() || o.phoneNumber == customer.phoneNumber))
+                .FirstOrDefaultAsync();
+            if (isvalid != null)
+                return BadRequest();
 
             _context.Entry(customer).State = EntityState.Modified;
 
@@ -79,6 +86,12 @@ namespace PizzaOrderWebApplication.Controllers
         [HttpPost]
         public async Task<ActionResult<Customer>> PostCustomer(Customer customer)
         {
+            var isvalid = await _context.Customers
+                .Where(o => customer.Id != o.Id && (o.Email.ToLower() == customer.Email.ToLower() || o.phoneNumber == customer.phoneNumber))
+                .FirstOrDefaultAsync();
+            if (isvalid != null)
+                return BadRequest();
+
             _context.Customers.Add(customer);
             await _context.SaveChangesAsync();
 
