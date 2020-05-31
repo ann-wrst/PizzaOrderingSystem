@@ -63,6 +63,14 @@
               "target": "Package",
               "version": "[4.7.0, )"
             },
+            "xunit": {
+              "target": "Package",
+              "version": "[2.4.1, )"
+            },
+            "xunit.assert": {
+              "target": "Package",
+              "version": "[2.4.1, )"
+            },
             "xunit.extensibility.core": {
               "target": "Package",
               "version": "[2.4.1, )"

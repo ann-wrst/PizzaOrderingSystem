@@ -19,7 +19,6 @@ namespace PizzaOrderWebApplication.Controllers
         {
             _context = context;
         }
-
         // GET: api/Orders
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Order>>> GetOrders()

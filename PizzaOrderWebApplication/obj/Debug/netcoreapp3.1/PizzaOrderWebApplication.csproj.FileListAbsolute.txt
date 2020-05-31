@@ -150,4 +150,6 @@ C:\Users\annwr\source\repos\PizzaOrderWebApplication\PizzaOrderWebApplication\bi
 C:\Users\annwr\source\repos\PizzaOrderWebApplication\PizzaOrderWebApplication\bin\Debug\netcoreapp3.1\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\annwr\source\repos\PizzaOrderWebApplication\PizzaOrderWebApplication\bin\Debug\netcoreapp3.1\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\annwr\source\repos\PizzaOrderWebApplication\PizzaOrderWebApplication\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\annwr\source\repos\PizzaOrderWebApplication\PizzaOrderWebApplication\bin\Debug\netcoreapp3.1\xunit.assert.dll
+C:\Users\annwr\source\repos\PizzaOrderWebApplication\PizzaOrderWebApplication\bin\Debug\netcoreapp3.1\xunit.execution.dotnet.dll
 C:\Users\annwr\source\repos\PizzaOrderWebApplication\PizzaOrderWebApplication\obj\Debug\netcoreapp3.1\PizzaOrderWebApplication.MvcApplicationPartsAssemblyInfo.cache
